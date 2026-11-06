@@ -7,6 +7,10 @@
   "required": ["decisions", "kinds"],
   "additionalProperties": false,
   "properties": {
+    "$schema": {
+      "description": "This schema's URL, naming the version the file follows.",
+      "const": "https://path-coverage.github.io/schemas/v1/path_coverage.schema.json"
+    },
     "decisions": {
       "description": "Each decision's operands, in order, each with how often it was truthy and falsy.",
       "type": "object",

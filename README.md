@@ -15,9 +15,21 @@ They are the contract between the ports that write the files,
 [ruby](https://github.com/path-coverage/ruby) and
 [python](https://github.com/path-coverage/python), and what reads
 them, eg [html-reporter](https://github.com/path-coverage/html-reporter).
+Each file names its schema's URL under `$schema`; both are served at
+https://path-coverage.github.io/schemas/.
+
+## Validating a run
+
+The image validates the two files in a directory, exiting non-zero if
+either is invalid:
+
+```sh
+docker run --rm -v "$PWD/coverage:/paths:ro" ghcr.io/path-coverage/schemas /paths
+```
 
 ## Testing
 
-`bin/test.sh`, in Docker, checks every sample under `samples/valid`, a
-demo run of each port, is valid, and every sample under
-`samples/invalid` is not.
+`bin/test.sh` builds the image and, in it, checks every sample under
+`samples/valid`, a demo run of each port, is valid, and every sample
+under `samples/invalid` is not. A push to main tests, then publishes the
+image, tagged `latest` and with the commit.

@@ -7,6 +7,10 @@
   "required": ["schema", "ignored", "groups", "labels", "files"],
   "additionalProperties": false,
   "properties": {
+    "$schema": {
+      "description": "This schema's URL, naming the version the file follows.",
+      "const": "https://path-coverage.github.io/schemas/v1/path_coverage.source.schema.json"
+    },
     "schema": { "const": 1 },
     "ignored": {
       "description": "The operators whose decisions were not measured.",
