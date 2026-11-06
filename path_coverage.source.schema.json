@@ -1,0 +1,137 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://path-coverage.github.io/schemas/v1/path_coverage.source.schema.json",
+  "title": "path_coverage.source.json",
+  "description": "What drawing each covered file's code needs, and only a parser of its language can work out: each line's text and coloured tokens, where each decision is, and its fold's rows. It holds no counts; path_coverage.json has them.",
+  "type": "object",
+  "required": ["schema", "ignored", "groups", "labels", "files"],
+  "additionalProperties": false,
+  "properties": {
+    "schema": { "const": 1 },
+    "ignored": {
+      "description": "The operators whose decisions were not measured.",
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "groups": {
+      "description": "Each group's covered files, by path.",
+      "type": "object",
+      "additionalProperties": { "type": "array", "items": { "type": "string" } }
+    },
+    "labels": {
+      "description": "Each card row's top, eg &&, if/else, return, coloured.",
+      "type": "object",
+      "additionalProperties": { "$ref": "#/$defs/code" }
+    },
+    "files": {
+      "description": "Each covered file, by path, relative to the run's root.",
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["lines", "decisions"],
+        "additionalProperties": false,
+        "properties": {
+          "lines": {
+            "description": "Every line of the file, decision or not.",
+            "type": "array",
+            "items": { "$ref": "#/$defs/code" }
+          },
+          "decisions": {
+            "type": "object",
+            "propertyNames": { "type": "string", "pattern": "^.+:[0-9]+:[0-9]+$" },
+            "additionalProperties": { "$ref": "#/$defs/decision" }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "code": {
+      "description": "A fragment of code: its text, and its coloured tokens, each [from, to, class], columns in characters; uncoloured text has no token.",
+      "type": "object",
+      "required": ["text", "tokens"],
+      "additionalProperties": false,
+      "properties": {
+        "text": { "type": "string" },
+        "tokens": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "prefixItems": [
+              { "type": "integer", "minimum": 0 },
+              { "type": "integer", "minimum": 0 },
+              { "description": "k keyword, o operator, n number, s string, c comment, t constant or class, v variable.", "enum": ["k", "o", "n", "s", "c", "t", "v"] }
+            ],
+            "items": false,
+            "minItems": 3
+          }
+        }
+      }
+    },
+    "location": {
+      "description": "[line, column, end line, end column], columns in characters; null for code it has none of.",
+      "type": ["array", "null"],
+      "items": { "type": "integer", "minimum": 0 },
+      "minItems": 4,
+      "maxItems": 4
+    },
+    "decision": {
+      "type": "object",
+      "required": ["span", "fold"],
+      "additionalProperties": false,
+      "properties": {
+        "span": {
+          "description": "[first, last] lines the decision's code covers.",
+          "type": "array",
+          "items": { "type": "integer", "minimum": 1 },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "fold": {
+          "description": "The rows of the decision's fold: its own row first, then a row for each of its parts. Each part's cells are one per possible path, in the order path_coverage.json lists the decision's paths.",
+          "type": "array",
+          "prefixItems": [{ "$ref": "#/$defs/decisionRow" }],
+          "items": { "$ref": "#/$defs/partRow" },
+          "minItems": 1
+        }
+      }
+    },
+    "decisionRow": {
+      "type": "object",
+      "required": ["kind", "branch", "label", "at", "else"],
+      "additionalProperties": false,
+      "properties": {
+        "kind": { "const": "decision" },
+        "branch": { "type": "string" },
+        "label": { "$ref": "#/$defs/code" },
+        "at": { "$ref": "#/$defs/location" },
+        "else": { "description": "Where its else keyword is, or null.", "$ref": "#/$defs/location" }
+      }
+    },
+    "partRow": {
+      "type": "object",
+      "required": ["kind", "branch", "label", "at", "cells"],
+      "additionalProperties": false,
+      "properties": {
+        "kind": { "enum": ["operand", "subtree", "arm", "leaves"] },
+        "branch": { "description": "Its tree branch drawing, eg a tee and a bar.", "type": "string" },
+        "label": { "$ref": "#/$defs/code" },
+        "at": { "$ref": "#/$defs/location" },
+        "cells": {
+          "type": "array",
+          "items": {
+            "description": "[text, mark, hover]: a letter, eg T, or empty with a mark, eg taken, and hover text, each null when it has none.",
+            "type": "array",
+            "prefixItems": [
+              { "type": "string" },
+              { "type": ["string", "null"] },
+              { "type": ["string", "null"] }
+            ],
+            "items": false,
+            "minItems": 3
+          }
+        }
+      }
+    }
+  }
+}

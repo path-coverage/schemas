@@ -1,0 +1,206 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://path-coverage.github.io/schemas/v1/path_coverage.schema.json",
+  "title": "path_coverage.json",
+  "description": "The counts of one path coverage run: every decision of every covered file, the paths each took, the totals, and each method's card. Decisions are named path:line:column, the path relative to the run's root.",
+  "type": "object",
+  "required": ["decisions", "kinds"],
+  "additionalProperties": false,
+  "properties": {
+    "decisions": {
+      "description": "Each decision's operands, in order, each with how often it was truthy and falsy.",
+      "type": "object",
+      "propertyNames": { "$ref": "#/$defs/decisionName" },
+      "additionalProperties": {
+        "type": "array",
+        "items": { "$ref": "#/$defs/operand" }
+      }
+    },
+    "paths": {
+      "description": "Each decision's leaves, as line:column spans, and every possible path with how often it was taken.",
+      "type": "object",
+      "propertyNames": { "$ref": "#/$defs/decisionName" },
+      "additionalProperties": {
+        "type": "object",
+        "required": ["leaves", "taken"],
+        "additionalProperties": false,
+        "properties": {
+          "leaves": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "prefixItems": [{ "$ref": "#/$defs/at" }, { "$ref": "#/$defs/at" }],
+              "items": false,
+              "minItems": 2
+            }
+          },
+          "taken": { "$ref": "#/$defs/takenPaths" }
+        }
+      }
+    },
+    "outside": {
+      "description": "Each path taken that a treatment rules out, so a wrong treatment is reported, never dropped.",
+      "type": "object",
+      "propertyNames": { "$ref": "#/$defs/decisionName" },
+      "additionalProperties": { "$ref": "#/$defs/takenPaths" }
+    },
+    "reached": {
+      "description": "How often each statement that is no decision, and each method's entry, was reached; absent when not known, eg in a report the post reporter sent.",
+      "type": "object",
+      "propertyNames": { "$ref": "#/$defs/decisionName" },
+      "additionalProperties": { "$ref": "#/$defs/count" }
+    },
+    "totals": {
+      "description": "The paths taken of all possible, as [taken, possible]: alone, each decision's paths on their own, and combined, through each method's decisions; with groups configured, each group's own.",
+      "type": "object",
+      "required": ["alone"],
+      "additionalProperties": false,
+      "properties": {
+        "alone": { "$ref": "#/$defs/pair" },
+        "combined": { "$ref": "#/$defs/pair" },
+        "groups": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["alone"],
+            "additionalProperties": false,
+            "properties": {
+              "alone": { "$ref": "#/$defs/pair" },
+              "combined": { "$ref": "#/$defs/pair" }
+            }
+          }
+        }
+      }
+    },
+    "cards": {
+      "description": "Each method's card, under its def's name, and each top card, for decisions outside every method, under its first line's start.",
+      "type": "object",
+      "propertyNames": { "$ref": "#/$defs/decisionName" },
+      "additionalProperties": { "$ref": "#/$defs/card" }
+    },
+    "tree": {
+      "description": "How each card's rows nest: by file, then card line:column, then row line:column.",
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "propertyNames": { "$ref": "#/$defs/at" },
+        "additionalProperties": {
+          "type": "object",
+          "propertyNames": { "$ref": "#/$defs/at" },
+          "additionalProperties": { "$ref": "#/$defs/place" }
+        }
+      }
+    },
+    "kinds": {
+      "description": "The kinds of decision measured; a run measuring other kinds lists its paths differently, so runs merge only when these match.",
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "ignored": {
+      "description": "The operators whose decisions were not measured, eg &&=.",
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "treats": {
+      "description": "Each treatment: the method, what it is treated as, and the glob it is limited to, or null.",
+      "type": "array",
+      "items": {
+        "type": "array",
+        "prefixItems": [
+          { "type": "string" },
+          { "type": "string" },
+          { "type": ["string", "null"] }
+        ],
+        "items": false,
+        "minItems": 3
+      }
+    }
+  },
+  "$defs": {
+    "decisionName": {
+      "description": "path:line:column, line from 1, column in characters from 0.",
+      "type": "string",
+      "pattern": "^.+:[0-9]+:[0-9]+$"
+    },
+    "at": {
+      "description": "line:column.",
+      "type": "string",
+      "pattern": "^[0-9]+:[0-9]+$"
+    },
+    "count": { "type": "integer", "minimum": 0 },
+    "pair": {
+      "description": "[taken, possible].",
+      "type": "array",
+      "prefixItems": [{ "$ref": "#/$defs/count" }, { "$ref": "#/$defs/count" }],
+      "items": false,
+      "minItems": 2
+    },
+    "operand": {
+      "description": "How often an operand was truthy and falsy; only names the one outcome a fixed leaf can have.",
+      "type": "object",
+      "required": ["truthy", "falsy"],
+      "additionalProperties": false,
+      "properties": {
+        "truthy": { "$ref": "#/$defs/count" },
+        "falsy": { "$ref": "#/$defs/count" },
+        "only": { "enum": ["truthy", "falsy"] }
+      }
+    },
+    "takenPaths": {
+      "description": "Paths, each its leaves' outcomes in order, with how often it was taken. An outcome is true, false, null for a leaf not reached, or a word, eg 2+ items.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["path", "count"],
+        "additionalProperties": false,
+        "properties": {
+          "path": {
+            "type": "array",
+            "items": { "type": ["boolean", "null", "string"] }
+          },
+          "count": { "$ref": "#/$defs/count" }
+        }
+      }
+    },
+    "card": {
+      "type": "object",
+      "required": ["name", "first", "last", "ways", "calls", "rows"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "description": "The method's name, or a top card's scope, eg its class, or file.", "type": ["string", "null"] },
+        "first": { "type": "integer", "minimum": 1 },
+        "last": { "type": "integer", "minimum": 1 },
+        "ways": { "description": "The ways one call can go through the card, its decisions multiplied as they nest.", "$ref": "#/$defs/count" },
+        "calls": { "description": "How often the method was called; null for a top card, or when not known.", "type": ["integer", "null"], "minimum": 0 },
+        "rows": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["at", "top", "paths", "taken", "decision"],
+            "additionalProperties": false,
+            "properties": {
+              "at": { "description": "line:column, the column two digits.", "$ref": "#/$defs/at" },
+              "top": { "description": "What the row is, eg &&, if/else, return.", "type": "string" },
+              "paths": { "$ref": "#/$defs/count" },
+              "taken": { "description": "How many of its paths were taken; null when not known.", "type": ["integer", "null"], "minimum": 0 },
+              "decision": { "description": "The row's decision, null for a row that is no decision, eg a return.", "anyOf": [{ "$ref": "#/$defs/decisionName" }, { "type": "null" }] }
+            }
+          }
+        }
+      }
+    },
+    "place": {
+      "description": "Where a row runs: inside parent's row, in its arm, on the indices of its possible paths, inside its leaf-th leaf, giving that leaf each outcome in gives; each null where it does not apply.",
+      "type": "object",
+      "required": ["parent", "in", "on", "leaf", "gives"],
+      "additionalProperties": false,
+      "properties": {
+        "parent": { "anyOf": [{ "$ref": "#/$defs/at" }, { "type": "null" }] },
+        "in": { "type": ["string", "null"] },
+        "on": { "type": ["array", "null"], "items": { "type": "integer", "minimum": 0 } },
+        "leaf": { "type": ["integer", "null"], "minimum": 0 },
+        "gives": { "type": ["array", "null"] }
+      }
+    }
+  }
+}
