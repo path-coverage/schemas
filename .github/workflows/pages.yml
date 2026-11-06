@@ -1,5 +1,6 @@
 # Tests the schemas against the samples, then publishes them on GitHub
-# Pages under v1/, the URLs their $ids name, on each push to main.
+# Pages under v1/, the URLs their $ids name, with an index page linking
+# them, on each push to main.
 name: Pages
 
 on:
@@ -24,6 +25,7 @@ jobs:
       - run: bin/test.sh
       - run: |
           mkdir -p site/v1
+          cp pages/index.html site/
           cp path_coverage.schema.json path_coverage.source.schema.json site/v1/
       - uses: actions/upload-pages-artifact@v5
         with:
