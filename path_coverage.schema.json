@@ -196,6 +196,34 @@
               "decision": { "description": "The row's decision, null for a row that is no decision, eg a return.", "anyOf": [{ "$ref": "#/$defs/decisionName" }, { "type": "null" }] }
             }
           }
+        },
+        "taken": {
+          "description": "The ways the method's calls took, whole, each with how many calls took it; empty when never called. Absent for a top card, which no call runs.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["way", "count"],
+            "additionalProperties": false,
+            "properties": {
+              "way": {
+                "description": "The rows one call ran, in order: a decision row's at and the path it took, or a statement row's at alone.",
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["at"],
+                  "additionalProperties": false,
+                  "properties": {
+                    "at": { "description": "The row's at, as the card's rows have it.", "$ref": "#/$defs/at" },
+                    "path": {
+                      "type": "array",
+                      "items": { "type": ["boolean", "null", "string"] }
+                    }
+                  }
+                }
+              },
+              "count": { "$ref": "#/$defs/count" }
+            }
+          }
         }
       }
     },
