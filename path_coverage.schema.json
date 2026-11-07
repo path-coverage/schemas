@@ -105,6 +105,12 @@
       "type": "array",
       "items": { "type": "string" }
     },
+    "measured_by": {
+      "description": "Each tool that parsed or measured the run, by name, and its version, eg the language, its parser and path_coverage itself; any of them can find a file's decisions or paths differently, so runs merge only when these are equal.",
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": { "type": "string" }
+    },
     "treats": {
       "description": "Each treatment: the method, what it is treated as, and the glob it is limited to, or null.",
       "type": "array",
