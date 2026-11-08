@@ -180,7 +180,7 @@
         "name": { "description": "The method's name, or a top card's scope, eg its class, or file.", "type": ["string", "null"] },
         "first": { "type": "integer", "minimum": 1 },
         "last": { "type": "integer", "minimum": 1 },
-        "ways": { "description": "The ways one call can go through the card, its decisions multiplied as they nest.", "$ref": "#/$defs/count" },
+        "ways": { "description": "The ways one call can go through the card, its decisions multiplied as they nest; for a function card, its possible ways, the rows in its loops not among them, as each pass is a way of its own.", "$ref": "#/$defs/count" },
         "calls": { "description": "How often the method was called; null for a top card, or when not known.", "type": ["integer", "null"], "minimum": 0 },
         "rows": {
           "type": "array",
@@ -198,31 +198,60 @@
           }
         },
         "taken": {
-          "description": "The ways the method's calls took, whole, each with how many calls took it; empty when never called. Absent for a top card, which no call runs.",
+          "description": "The ways the method's calls took, whole, each with how many calls took it; empty when never called. A for loop is one step, its path how many passes it made, 0 items, 1 item or 2+ items. Absent for a top card, which no call runs.",
+          "$ref": "#/$defs/ways"
+        },
+        "passes": {
+          "description": "Each loop of the method, a for statement or a comprehension's generator, by its for keyword's at, with the ways its passes took, each pass a way of its own; empty when it made none. Absent for a top card.",
+          "type": "object",
+          "propertyNames": { "$ref": "#/$defs/at" },
+          "additionalProperties": { "$ref": "#/$defs/ways" }
+        },
+        "covered": {
+          "description": "The possible paths of the method's machine some call witnessed, a path's every choice made by one call, a loop's passes collapsed, each with how many calls did. Absent for a top card.",
+          "$ref": "#/$defs/ways"
+        },
+        "gaps": {
+          "description": "The possible paths of the method's machine no call witnessed, a loop a fork of 0 items or 1+ items, its body walked once. Absent for a top card.",
           "type": "array",
-          "items": {
-            "type": "object",
-            "required": ["way", "count"],
-            "additionalProperties": false,
-            "properties": {
-              "way": {
-                "description": "The rows one call ran, in order: a decision row's at and the path it took, or a statement row's at alone.",
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "required": ["at"],
-                  "additionalProperties": false,
-                  "properties": {
-                    "at": { "description": "The row's at, as the card's rows have it.", "$ref": "#/$defs/at" },
-                    "path": {
-                      "type": "array",
-                      "items": { "type": ["boolean", "null", "string"] }
-                    }
-                  }
-                }
-              },
-              "count": { "$ref": "#/$defs/count" }
-            }
+          "items": { "$ref": "#/$defs/way" }
+        },
+        "impossible": {
+          "description": "The paths of the method's machine no call can take, each giving a stable name, a parameter used only as a leaf, both outcomes: dodgy code, usually a duplicated test. Absent for a top card.",
+          "type": "array",
+          "items": { "$ref": "#/$defs/way" }
+        }
+      }
+    },
+    "ways": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["way", "count"],
+        "additionalProperties": false,
+        "properties": {
+          "way": { "$ref": "#/$defs/way" },
+          "count": { "$ref": "#/$defs/count" }
+        }
+      }
+    },
+    "way": {
+      "description": "The rows run, in order: a decision row's at and the path it took, a for loop's at and how many passes it made, or a statement row's at alone.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["at"],
+        "additionalProperties": false,
+        "properties": {
+          "at": { "description": "The row's at, as the card's rows have it, or a for loop's.", "$ref": "#/$defs/at" },
+          "path": {
+            "type": "array",
+            "items": { "type": ["boolean", "null", "string"] }
+          },
+          "passes": {
+            "description": "A loop's step only: the distinct ways its passes took in this call, so the call witnesses each.",
+            "type": "array",
+            "items": { "$ref": "#/$defs/way" }
           }
         }
       }
