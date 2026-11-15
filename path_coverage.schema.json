@@ -111,6 +111,10 @@
       "minProperties": 1,
       "additionalProperties": { "type": "string" }
     },
+    "events": {
+      "description": "The mode the run's events came from, eg monitoring or rewrite; modes can count a decision's paths differently, so runs merge only when these are equal.",
+      "type": "string"
+    },
     "treats": {
       "description": "Each treatment: the method, what it is treated as, and the glob it is limited to, or null.",
       "type": "array",
