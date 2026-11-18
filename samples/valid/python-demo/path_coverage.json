@@ -5,10 +5,6 @@
       {
         "truthy": 0,
         "falsy": 0
-      },
-      {
-        "truthy": 0,
-        "falsy": 0
       }
     ],
     "source/fare.py:8:4": [
@@ -83,19 +79,11 @@
       {
         "truthy": 2,
         "falsy": 1
-      },
-      {
-        "truthy": 1,
-        "falsy": 1
       }
     ],
     "source/kata.py:6:36": [
       {
         "truthy": 4,
-        "falsy": 1
-      },
-      {
-        "truthy": 3,
         "falsy": 1
       }
     ],
@@ -103,17 +91,9 @@
       {
         "truthy": 1,
         "falsy": 1
-      },
-      {
-        "truthy": 1,
-        "falsy": 0
       }
     ],
     "source/kata.py:18:23": [
-      {
-        "truthy": 1,
-        "falsy": 0
-      },
       {
         "truthy": 1,
         "falsy": 0
@@ -123,17 +103,9 @@
       {
         "truthy": 1,
         "falsy": 0
-      },
-      {
-        "truthy": 0,
-        "falsy": 0
       }
     ],
     "source/shop.py:7:47": [
-      {
-        "truthy": 0,
-        "falsy": 1
-      },
       {
         "truthy": 0,
         "falsy": 1
@@ -165,10 +137,6 @@
       {
         "truthy": 4,
         "falsy": 3
-      },
-      {
-        "truthy": 3,
-        "falsy": 1
       }
     ],
     "source/shop.py:28:27": [
@@ -178,10 +146,6 @@
       },
       {
         "truthy": 1,
-        "falsy": 0
-      },
-      {
-        "truthy": 0,
         "falsy": 0
       }
     ],
@@ -387,10 +351,6 @@
       {
         "truthy": 1,
         "falsy": 1
-      },
-      {
-        "truthy": 1,
-        "falsy": 0
       }
     ],
     "source/team.py:14:24": [
@@ -401,20 +361,12 @@
       {
         "truthy": 1,
         "falsy": 0
-      },
-      {
-        "truthy": 0,
-        "falsy": 1
       }
     ],
     "source/team.py:20:69": [
       {
         "truthy": 1,
         "falsy": 1
-      },
-      {
-        "truthy": 1,
-        "falsy": 0
       }
     ],
     "source/team.py:20:11": [
@@ -444,31 +396,18 @@
         [
           "7:11",
           "7:25"
-        ],
-        [
-          "7:30",
-          "7:45"
         ]
       ],
       "taken": [
         {
           "path": [
-            true,
             true
           ],
           "count": 0
         },
         {
           "path": [
-            true,
             false
-          ],
-          "count": 0
-        },
-        {
-          "path": [
-            false,
-            null
           ],
           "count": 0
         }
@@ -725,31 +664,18 @@
         [
           "6:11",
           "6:27"
-        ],
-        [
-          "6:32",
-          "6:42"
         ]
       ],
       "taken": [
         {
           "path": [
-            true,
             true
           ],
-          "count": 1
+          "count": 2
         },
         {
           "path": [
-            true,
             false
-          ],
-          "count": 1
-        },
-        {
-          "path": [
-            false,
-            null
           ],
           "count": 1
         }
@@ -760,31 +686,18 @@
         [
           "6:11",
           "6:35"
-        ],
-        [
-          "6:40",
-          "6:57"
         ]
       ],
       "taken": [
         {
           "path": [
-            true,
             true
           ],
-          "count": 3
+          "count": 4
         },
         {
           "path": [
-            true,
             false
-          ],
-          "count": 1
-        },
-        {
-          "path": [
-            false,
-            null
           ],
           "count": 1
         }
@@ -795,31 +708,18 @@
         [
           "11:12",
           "11:25"
-        ],
-        [
-          "12:16",
-          "12:34"
         ]
       ],
       "taken": [
         {
           "path": [
-            true,
             true
           ],
           "count": 1
         },
         {
           "path": [
-            true,
             false
-          ],
-          "count": 0
-        },
-        {
-          "path": [
-            false,
-            null
           ],
           "count": 1
         }
@@ -830,31 +730,18 @@
         [
           "18:12",
           "18:22"
-        ],
-        [
-          "18:27",
-          "18:39"
         ]
       ],
       "taken": [
         {
           "path": [
-            true,
             true
           ],
           "count": 1
         },
         {
           "path": [
-            true,
             false
-          ],
-          "count": 0
-        },
-        {
-          "path": [
-            false,
-            null
           ],
           "count": 0
         }
@@ -865,30 +752,17 @@
         [
           "18:41",
           "18:53"
-        ],
-        [
-          "18:57",
-          "18:70"
         ]
       ],
       "taken": [
         {
           "path": [
-            true,
-            null
+            true
           ],
           "count": 1
         },
         {
           "path": [
-            false,
-            true
-          ],
-          "count": 0
-        },
-        {
-          "path": [
-            false,
             false
           ],
           "count": 0
@@ -900,30 +774,17 @@
         [
           "7:10",
           "7:46"
-        ],
-        [
-          "7:50",
-          "7:71"
         ]
       ],
       "taken": [
         {
           "path": [
-            true,
-            null
-          ],
-          "count": 0
-        },
-        {
-          "path": [
-            false,
             true
           ],
           "count": 0
         },
         {
           "path": [
-            false,
             false
           ],
           "count": 1
@@ -1014,31 +875,18 @@
         [
           "23:11",
           "23:29"
-        ],
-        [
-          "23:34",
-          "23:56"
         ]
       ],
       "taken": [
         {
           "path": [
-            true,
             true
           ],
-          "count": 3
+          "count": 4
         },
         {
           "path": [
-            true,
             false
-          ],
-          "count": 1
-        },
-        {
-          "path": [
-            false,
-            null
           ],
           "count": 3
         }
@@ -1053,33 +901,19 @@
         [
           "28:32",
           "28:59"
-        ],
-        [
-          "28:63",
-          "28:82"
         ]
       ],
       "taken": [
         {
           "path": [
             true,
-            true,
-            null
+            true
           ],
           "count": 1
         },
         {
           "path": [
             true,
-            false,
-            true
-          ],
-          "count": 0
-        },
-        {
-          "path": [
-            true,
-            false,
             false
           ],
           "count": 0
@@ -1087,7 +921,6 @@
         {
           "path": [
             false,
-            null,
             null
           ],
           "count": 1
@@ -1781,16 +1614,11 @@
         [
           "7:30",
           "7:47"
-        ],
-        [
-          "8:16",
-          "8:30"
         ]
       ],
       "taken": [
         {
           "path": [
-            true,
             true,
             true
           ],
@@ -1799,23 +1627,13 @@
         {
           "path": [
             true,
-            true,
             false
-          ],
-          "count": 0
-        },
-        {
-          "path": [
-            true,
-            false,
-            null
           ],
           "count": 1
         },
         {
           "path": [
             false,
-            null,
             null
           ],
           "count": 1
@@ -1831,17 +1649,12 @@
         [
           "14:28",
           "14:41"
-        ],
-        [
-          "14:46",
-          "14:64"
         ]
       ],
       "taken": [
         {
           "path": [
             true,
-            null,
             null
           ],
           "count": 1
@@ -1849,24 +1662,14 @@
         {
           "path": [
             false,
-            true,
             true
           ],
-          "count": 0
-        },
-        {
-          "path": [
-            false,
-            true,
-            false
-          ],
           "count": 1
         },
         {
           "path": [
             false,
-            false,
-            null
+            false
           ],
           "count": 0
         }
@@ -1877,33 +1680,20 @@
         [
           "20:11",
           "20:68"
-        ],
-        [
-          "20:72",
-          "20:83"
         ]
       ],
       "taken": [
         {
           "path": [
-            true,
-            null
-          ],
-          "count": 1
-        },
-        {
-          "path": [
-            false,
             true
           ],
           "count": 1
         },
         {
           "path": [
-            false,
             false
           ],
-          "count": 0
+          "count": 1
         }
       ]
     },
@@ -2000,8 +1790,9 @@
   ],
   "measured_by": {
     "python": "3.14.8",
-    "path_coverage": "0.0.4"
+    "path_coverage": "0.0.7"
   },
+  "events": "monitoring",
   "reached": {
     "source/fare.py:4:0": 20,
     "source/fare.py:9:8": 1,
@@ -2038,12 +1829,12 @@
   },
   "totals": {
     "alone": [
-      94,
-      134
+      91,
+      122
     ],
     "combined": [
-      108,
-      152
+      105,
+      140
     ]
   },
   "cards": {
@@ -2051,13 +1842,13 @@
       "name": "is_old",
       "first": 5,
       "last": 7,
-      "ways": 3,
+      "ways": 2,
       "calls": 0,
       "rows": [
         {
           "at": "7:26",
           "top": "and",
-          "paths": 3,
+          "paths": 2,
           "taken": 0,
           "decision": "source/archive.py:7:26"
         }
@@ -2070,7 +1861,6 @@
           {
             "at": "7:26",
             "path": [
-              true,
               true
             ]
           }
@@ -2079,22 +1869,13 @@
           {
             "at": "7:26",
             "path": [
-              true,
               false
-            ]
-          }
-        ],
-        [
-          {
-            "at": "7:26",
-            "path": [
-              false,
-              null
             ]
           }
         ]
       ],
-      "impossible": []
+      "impossible": [],
+      "impossible_taken": []
     },
     "source/fare.py:4:0": {
       "name": "fare",
@@ -4298,7 +4079,8 @@
             "at": "12:08"
           }
         ]
-      ]
+      ],
+      "impossible_taken": []
     },
     "source/fee.py:5:0": {
       "name": "fee",
@@ -4547,20 +4329,21 @@
           }
         ]
       ],
-      "impossible": []
+      "impossible": [],
+      "impossible_taken": []
     },
     "source/group.py:4:0": {
       "name": "is_full",
       "first": 4,
       "last": 6,
-      "ways": 3,
+      "ways": 2,
       "calls": 3,
       "rows": [
         {
           "at": "6:28",
           "top": "and",
-          "paths": 3,
-          "taken": 3,
+          "paths": 2,
+          "taken": 2,
           "decision": "source/group.py:6:28"
         }
       ],
@@ -4570,32 +4353,18 @@
             {
               "at": "6:28",
               "path": [
-                true,
                 true
               ]
             }
           ],
-          "count": 1
+          "count": 2
         },
         {
           "way": [
             {
               "at": "6:28",
               "path": [
-                true,
                 false
-              ]
-            }
-          ],
-          "count": 1
-        },
-        {
-          "way": [
-            {
-              "at": "6:28",
-              "path": [
-                false,
-                null
               ]
             }
           ],
@@ -4609,32 +4378,18 @@
             {
               "at": "6:28",
               "path": [
-                true,
                 true
               ]
             }
           ],
-          "count": 1
+          "count": 2
         },
         {
           "way": [
             {
               "at": "6:28",
               "path": [
-                true,
                 false
-              ]
-            }
-          ],
-          "count": 1
-        },
-        {
-          "way": [
-            {
-              "at": "6:28",
-              "path": [
-                false,
-                null
               ]
             }
           ],
@@ -4642,20 +4397,21 @@
         }
       ],
       "gaps": [],
-      "impossible": []
+      "impossible": [],
+      "impossible_taken": []
     },
     "source/kata.py:4:0": {
       "name": "is_id",
       "first": 4,
       "last": 6,
-      "ways": 3,
+      "ways": 2,
       "calls": 5,
       "rows": [
         {
           "at": "6:36",
           "top": "and",
-          "paths": 3,
-          "taken": 3,
+          "paths": 2,
+          "taken": 2,
           "decision": "source/kata.py:6:36"
         }
       ],
@@ -4665,31 +4421,17 @@
             {
               "at": "6:36",
               "path": [
-                true,
                 true
               ]
             }
           ],
-          "count": 3
+          "count": 4
         },
         {
           "way": [
             {
               "at": "6:36",
               "path": [
-                false,
-                null
-              ]
-            }
-          ],
-          "count": 1
-        },
-        {
-          "way": [
-            {
-              "at": "6:36",
-              "path": [
-                true,
                 false
               ]
             }
@@ -4704,32 +4446,18 @@
             {
               "at": "6:36",
               "path": [
-                true,
                 true
               ]
             }
           ],
-          "count": 3
+          "count": 4
         },
         {
           "way": [
             {
               "at": "6:36",
               "path": [
-                true,
                 false
-              ]
-            }
-          ],
-          "count": 1
-        },
-        {
-          "way": [
-            {
-              "at": "6:36",
-              "path": [
-                false,
-                null
               ]
             }
           ],
@@ -4737,19 +4465,20 @@
         }
       ],
       "gaps": [],
-      "impossible": []
+      "impossible": [],
+      "impossible_taken": []
     },
     "source/kata.py:9:0": {
       "name": "is_runnable",
       "first": 9,
       "last": 12,
-      "ways": 3,
+      "ways": 2,
       "calls": 2,
       "rows": [
         {
           "at": "12:12",
           "top": "and",
-          "paths": 3,
+          "paths": 2,
           "taken": 2,
           "decision": "source/kata.py:12:12"
         }
@@ -4760,7 +4489,6 @@
             {
               "at": "12:12",
               "path": [
-                true,
                 true
               ]
             }
@@ -4772,8 +4500,7 @@
             {
               "at": "12:12",
               "path": [
-                false,
-                null
+                false
               ]
             }
           ],
@@ -4787,7 +4514,6 @@
             {
               "at": "12:12",
               "path": [
-                true,
                 true
               ]
             }
@@ -4799,45 +4525,35 @@
             {
               "at": "12:12",
               "path": [
-                false,
-                null
+                false
               ]
             }
           ],
           "count": 1
         }
       ],
-      "gaps": [
-        [
-          {
-            "at": "12:12",
-            "path": [
-              true,
-              false
-            ]
-          }
-        ]
-      ],
-      "impossible": []
+      "gaps": [],
+      "impossible": [],
+      "impossible_taken": []
     },
     "source/kata.py:15:0": {
       "name": "pair_checks",
       "first": 15,
       "last": 18,
-      "ways": 9,
+      "ways": 4,
       "calls": 1,
       "rows": [
         {
           "at": "18:23",
           "top": "and",
-          "paths": 3,
+          "paths": 2,
           "taken": 1,
           "decision": "source/kata.py:18:23"
         },
         {
           "at": "18:54",
           "top": "or",
-          "paths": 3,
+          "paths": 2,
           "taken": 1,
           "decision": "source/kata.py:18:54"
         }
@@ -4848,15 +4564,13 @@
             {
               "at": "18:23",
               "path": [
-                true,
                 true
               ]
             },
             {
               "at": "18:54",
               "path": [
-                true,
-                null
+                true
               ]
             }
           ],
@@ -4870,15 +4584,13 @@
             {
               "at": "18:23",
               "path": [
-                true,
                 true
               ]
             },
             {
               "at": "18:54",
               "path": [
-                true,
-                null
+                true
               ]
             }
           ],
@@ -4890,30 +4602,12 @@
           {
             "at": "18:23",
             "path": [
-              true,
               true
             ]
           },
           {
             "at": "18:54",
             "path": [
-              false,
-              true
-            ]
-          }
-        ],
-        [
-          {
-            "at": "18:23",
-            "path": [
-              true,
-              true
-            ]
-          },
-          {
-            "at": "18:54",
-            "path": [
-              false,
               false
             ]
           }
@@ -4922,30 +4616,12 @@
           {
             "at": "18:23",
             "path": [
-              true,
               false
             ]
           },
           {
             "at": "18:54",
             "path": [
-              true,
-              null
-            ]
-          }
-        ],
-        [
-          {
-            "at": "18:23",
-            "path": [
-              true,
-              false
-            ]
-          },
-          {
-            "at": "18:54",
-            "path": [
-              false,
               true
             ]
           }
@@ -4954,81 +4630,32 @@
           {
             "at": "18:23",
             "path": [
-              true,
               false
             ]
           },
           {
             "at": "18:54",
             "path": [
-              false,
-              false
-            ]
-          }
-        ],
-        [
-          {
-            "at": "18:23",
-            "path": [
-              false,
-              null
-            ]
-          },
-          {
-            "at": "18:54",
-            "path": [
-              true,
-              null
-            ]
-          }
-        ],
-        [
-          {
-            "at": "18:23",
-            "path": [
-              false,
-              null
-            ]
-          },
-          {
-            "at": "18:54",
-            "path": [
-              false,
-              true
-            ]
-          }
-        ],
-        [
-          {
-            "at": "18:23",
-            "path": [
-              false,
-              null
-            ]
-          },
-          {
-            "at": "18:54",
-            "path": [
-              false,
               false
             ]
           }
         ]
       ],
-      "impossible": []
+      "impossible": [],
+      "impossible_taken": []
     },
     "source/shop.py:21:0": {
       "name": "is_member",
       "first": 21,
       "last": 23,
-      "ways": 3,
+      "ways": 2,
       "calls": 7,
       "rows": [
         {
           "at": "23:30",
           "top": "and",
-          "paths": 3,
-          "taken": 3,
+          "paths": 2,
+          "taken": 2,
           "decision": "source/shop.py:23:30"
         }
       ],
@@ -5038,36 +4665,22 @@
             {
               "at": "23:30",
               "path": [
-                true,
                 true
               ]
             }
           ],
-          "count": 3
+          "count": 4
         },
         {
           "way": [
             {
               "at": "23:30",
               "path": [
-                false,
-                null
-              ]
-            }
-          ],
-          "count": 3
-        },
-        {
-          "way": [
-            {
-              "at": "23:30",
-              "path": [
-                true,
                 false
               ]
             }
           ],
-          "count": 1
+          "count": 3
         }
       ],
       "passes": {},
@@ -5077,32 +4690,18 @@
             {
               "at": "23:30",
               "path": [
-                true,
                 true
               ]
             }
           ],
-          "count": 3
+          "count": 4
         },
         {
           "way": [
             {
               "at": "23:30",
               "path": [
-                true,
                 false
-              ]
-            }
-          ],
-          "count": 1
-        },
-        {
-          "way": [
-            {
-              "at": "23:30",
-              "path": [
-                false,
-                null
               ]
             }
           ],
@@ -5110,19 +4709,20 @@
         }
       ],
       "gaps": [],
-      "impossible": []
+      "impossible": [],
+      "impossible_taken": []
     },
     "source/shop.py:26:0": {
       "name": "is_vip",
       "first": 26,
       "last": 28,
-      "ways": 4,
+      "ways": 3,
       "calls": 2,
       "rows": [
         {
           "at": "28:27",
           "top": "and",
-          "paths": 4,
+          "paths": 3,
           "taken": 2,
           "decision": "source/shop.py:28:27"
         }
@@ -5134,8 +4734,7 @@
               "at": "28:27",
               "path": [
                 true,
-                true,
-                null
+                true
               ]
             }
           ],
@@ -5147,7 +4746,6 @@
               "at": "28:27",
               "path": [
                 false,
-                null,
                 null
               ]
             }
@@ -5163,8 +4761,7 @@
               "at": "28:27",
               "path": [
                 true,
-                true,
-                null
+                true
               ]
             }
           ],
@@ -5176,7 +4773,6 @@
               "at": "28:27",
               "path": [
                 false,
-                null,
                 null
               ]
             }
@@ -5190,23 +4786,13 @@
             "at": "28:27",
             "path": [
               true,
-              false,
-              true
-            ]
-          }
-        ],
-        [
-          {
-            "at": "28:27",
-            "path": [
-              true,
-              false,
               false
             ]
           }
         ]
       ],
-      "impossible": []
+      "impossible": [],
+      "impossible_taken": []
     },
     "source/shop.py:31:0": {
       "name": "price",
@@ -77028,7 +76614,8 @@
           }
         ]
       ],
-      "impossible": []
+      "impossible": [],
+      "impossible_taken": []
     },
     "source/shop.py:58:0": {
       "name": "discounts",
@@ -77121,7 +76708,8 @@
         }
       ],
       "gaps": [],
-      "impossible": []
+      "impossible": [],
+      "impossible_taken": []
     },
     "source/shop.py:64:4": {
       "name": "discount",
@@ -77407,7 +76995,8 @@
           }
         ]
       ],
-      "impossible": []
+      "impossible": [],
+      "impossible_taken": []
     },
     "source/shop.py:74:0": {
       "name": "labels",
@@ -77710,7 +77299,8 @@
           }
         ]
       ],
-      "impossible": []
+      "impossible": [],
+      "impossible_taken": []
     },
     "source/shop.py:83:0": {
       "name": "on_sale",
@@ -77849,7 +77439,8 @@
           }
         ]
       ],
-      "impossible": []
+      "impossible": [],
+      "impossible_taken": []
     },
     "source/shop.py:88:0": {
       "name": "size",
@@ -78003,7 +77594,8 @@
           }
         ]
       ],
-      "impossible": []
+      "impossible": [],
+      "impossible_taken": []
     },
     "source/shop.py:101:0": {
       "name": "greeting",
@@ -78173,19 +77765,20 @@
         }
       ],
       "gaps": [],
-      "impossible": []
+      "impossible": [],
+      "impossible_taken": []
     },
     "source/shop.py:7:0": {
       "name": "file",
       "first": 7,
       "last": 7,
-      "ways": 3,
+      "ways": 2,
       "calls": null,
       "rows": [
         {
           "at": "7:47",
           "top": "or",
-          "paths": 3,
+          "paths": 2,
           "taken": 1,
           "decision": "source/shop.py:7:47"
         }
@@ -78234,13 +77827,13 @@
       "name": "is_name",
       "first": 4,
       "last": 8,
-      "ways": 4,
+      "ways": 3,
       "calls": 3,
       "rows": [
         {
           "at": "7:26",
           "top": "and",
-          "paths": 4,
+          "paths": 3,
           "taken": 3,
           "decision": "source/team.py:7:26"
         }
@@ -78252,7 +77845,6 @@
               "at": "7:26",
               "path": [
                 true,
-                true,
                 true
               ]
             }
@@ -78265,8 +77857,7 @@
               "at": "7:26",
               "path": [
                 true,
-                false,
-                null
+                false
               ]
             }
           ],
@@ -78278,7 +77869,6 @@
               "at": "7:26",
               "path": [
                 false,
-                null,
                 null
               ]
             }
@@ -78294,7 +77884,6 @@
               "at": "7:26",
               "path": [
                 true,
-                true,
                 true
               ]
             }
@@ -78307,8 +77896,7 @@
               "at": "7:26",
               "path": [
                 true,
-                false,
-                null
+                false
               ]
             }
           ],
@@ -78320,7 +77908,6 @@
               "at": "7:26",
               "path": [
                 false,
-                null,
                 null
               ]
             }
@@ -78328,31 +77915,21 @@
           "count": 1
         }
       ],
-      "gaps": [
-        [
-          {
-            "at": "7:26",
-            "path": [
-              true,
-              true,
-              false
-            ]
-          }
-        ]
-      ],
-      "impossible": []
+      "gaps": [],
+      "impossible": [],
+      "impossible_taken": []
     },
     "source/team.py:11:0": {
       "name": "can_edit",
       "first": 11,
       "last": 14,
-      "ways": 4,
+      "ways": 3,
       "calls": 2,
       "rows": [
         {
           "at": "14:24",
           "top": "or",
-          "paths": 4,
+          "paths": 3,
           "taken": 2,
           "decision": "source/team.py:14:24"
         }
@@ -78364,7 +77941,6 @@
               "at": "14:24",
               "path": [
                 true,
-                null,
                 null
               ]
             }
@@ -78377,8 +77953,7 @@
               "at": "14:24",
               "path": [
                 false,
-                true,
-                false
+                true
               ]
             }
           ],
@@ -78393,7 +77968,6 @@
               "at": "14:24",
               "path": [
                 true,
-                null,
                 null
               ]
             }
@@ -78406,8 +77980,7 @@
               "at": "14:24",
               "path": [
                 false,
-                true,
-                false
+                true
               ]
             }
           ],
@@ -78420,29 +77993,19 @@
             "at": "14:24",
             "path": [
               false,
-              true,
-              true
-            ]
-          }
-        ],
-        [
-          {
-            "at": "14:24",
-            "path": [
-              false,
-              false,
-              null
+              false
             ]
           }
         ]
       ],
-      "impossible": []
+      "impossible": [],
+      "impossible_taken": []
     },
     "source/team.py:17:0": {
       "name": "is_led",
       "first": 17,
       "last": 20,
-      "ways": 8,
+      "ways": 5,
       "calls": 2,
       "rows": [
         {
@@ -78455,7 +78018,7 @@
         {
           "at": "20:69",
           "top": "or",
-          "paths": 3,
+          "paths": 2,
           "taken": 2,
           "decision": "source/team.py:20:69"
         },
@@ -78480,8 +78043,7 @@
             {
               "at": "20:69",
               "path": [
-                true,
-                null
+                true
               ]
             }
           ],
@@ -78499,8 +78061,7 @@
             {
               "at": "20:69",
               "path": [
-                false,
-                true
+                false
               ]
             }
           ],
@@ -78521,8 +78082,7 @@
             {
               "at": "20:69",
               "path": [
-                true,
-                null
+                true
               ]
             }
           ],
@@ -78540,8 +78100,7 @@
             {
               "at": "20:69",
               "path": [
-                false,
-                true
+                false
               ]
             }
           ],
@@ -78560,8 +78119,7 @@
           {
             "at": "20:69",
             "path": [
-              true,
-              null
+              true
             ]
           }
         ],
@@ -78576,55 +78134,6 @@
           {
             "at": "20:69",
             "path": [
-              false,
-              true
-            ]
-          }
-        ],
-        [
-          {
-            "at": "20:11",
-            "path": [
-              "2+ items",
-              false
-            ]
-          },
-          {
-            "at": "20:69",
-            "path": [
-              false,
-              true
-            ]
-          }
-        ],
-        [
-          {
-            "at": "20:11",
-            "path": [
-              "0 items",
-              null
-            ]
-          },
-          {
-            "at": "20:69",
-            "path": [
-              false,
-              false
-            ]
-          }
-        ],
-        [
-          {
-            "at": "20:11",
-            "path": [
-              "1 item",
-              false
-            ]
-          },
-          {
-            "at": "20:69",
-            "path": [
-              false,
               false
             ]
           }
@@ -78640,13 +78149,13 @@
           {
             "at": "20:69",
             "path": [
-              false,
               false
             ]
           }
         ]
       ],
-      "impossible": []
+      "impossible": [],
+      "impossible_taken": []
     }
   },
   "tree": {
@@ -79274,8 +78783,7 @@
           "in": null,
           "on": [
             0,
-            1,
-            2
+            1
           ],
           "leaf": 0,
           "gives": [

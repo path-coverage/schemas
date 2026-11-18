@@ -221,7 +221,12 @@
           "items": { "$ref": "#/$defs/way" }
         },
         "impossible": {
-          "description": "The paths of the method's machine no call can take, each giving a stable name, a parameter used only as a leaf, both outcomes: dodgy code, usually a duplicated test. Absent for a top card.",
+          "description": "The paths of the method's machine no call can take: each giving a stable name, a parameter used only as a leaf, both outcomes, which is dodgy code, usually a duplicated test; or giving no items to a loop whose line ends in the comment # path: impossible 0 items. Absent for a top card.",
+          "type": "array",
+          "items": { "$ref": "#/$defs/way" }
+        },
+        "impossible_taken": {
+          "description": "The impossible paths some call witnessed nonetheless: each proves a comment declaring a loop never empty wrong. Absent for a top card.",
           "type": "array",
           "items": { "$ref": "#/$defs/way" }
         }
