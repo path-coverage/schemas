@@ -115,6 +115,16 @@
       "description": "The mode the run's events came from, eg monitoring or rewrite; modes can count a decision's paths differently, so runs merge only when these are equal.",
       "type": "string"
     },
+    "max_paths": {
+      "description": "The most paths a function may have and still be checked; a function with more has no covered or gaps, and fails.",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 65536
+    },
+    "loops": {
+      "description": "Whether each loop counted as a decision in a function's ways: 0 items or 1+ items.",
+      "type": "boolean"
+    },
     "treats": {
       "description": "Each treatment: the method, what it is treated as, and the glob it is limited to, or null.",
       "type": "array",
