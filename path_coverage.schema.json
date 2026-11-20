@@ -204,7 +204,7 @@
             "additionalProperties": false,
             "properties": {
               "at": { "description": "line:column, the column two digits.", "$ref": "#/$defs/at" },
-              "top": { "description": "What the row is, eg &&, if/else, return.", "type": "string" },
+              "top": { "description": "What the row is, eg &&, if/else, return, next.", "type": "string" },
               "paths": { "$ref": "#/$defs/count" },
               "taken": { "description": "How many of its paths were taken; null when not known.", "type": ["integer", "null"], "minimum": 0 },
               "decision": { "description": "The row's decision, null for a row that is no decision, eg a return.", "anyOf": [{ "$ref": "#/$defs/decisionName" }, { "type": "null" }] }
@@ -226,7 +226,7 @@
           "$ref": "#/$defs/ways"
         },
         "gaps": {
-          "description": "The possible paths of the method's machine no call witnessed, a loop a fork of 0 items or 1+ items, its body walked once. Absent for a top card.",
+          "description": "The possible paths of the method's machine no call witnessed, a loop a fork of 0 items or 1+ items, its body walked once. A rescue is a fork too: its body completes, or one of its rescues runs. Absent for a top card.",
           "type": "array",
           "items": { "$ref": "#/$defs/way" }
         },
@@ -255,7 +255,7 @@
       }
     },
     "way": {
-      "description": "The rows run, in order: a decision row's at and the path it took, a for loop's at and how many passes it made, or a statement row's at alone.",
+      "description": "The rows run, in order: a decision row's at and the path it took, a for loop's at and how many passes it made, or a statement row's at alone. A rescue fork's step is the at of its first rescue and its path: completed, its body running to its end, or rescue n, the rescue that ran.",
       "type": "array",
       "items": {
         "type": "object",
