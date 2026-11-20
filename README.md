@@ -13,8 +13,8 @@ coverage tool writes at the end of a run, and nothing else:
 
 They are the contract between the tools that write the files,
 [ruby](https://github.com/path-coverage/ruby) and
-[python](https://github.com/path-coverage/python), and what reads
-them, eg [html-reporter](https://github.com/path-coverage/html-reporter).
+[python](https://github.com/path-coverage/python), and the tools that
+read them.
 Each file names its schema's URL under `$schema`; both are served at
 https://path-coverage.github.io/schemas/.
 
@@ -99,7 +99,7 @@ it at, the path relative to the run's root. The keys:
 ## path_coverage.source.json
 
 What drawing each file's code needs and only a parser of its language
-can work out, so html-reporter never parses code:
+can work out, so a reader never parses code:
 
 - `files`: each covered file's `lines`, each its `text` and coloured
   `tokens`, and its `decisions`, each its `span` of lines and its
