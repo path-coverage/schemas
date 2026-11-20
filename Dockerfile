@@ -3,7 +3,8 @@ LABEL org.opencontainers.image.source=https://github.com/path-coverage/schemas
 
 RUN pip install --no-cache-dir --root-user-action=ignore jsonschema==4.26.0
 
-COPY validate.py path_coverage.schema.json path_coverage.source.schema.json /schemas/
-COPY samples /schemas/samples
+COPY validate.py /schemas/
+COPY v1 /schemas/v1
+COPY v2 /schemas/v2
 
 ENTRYPOINT ["python", "/schemas/validate.py"]

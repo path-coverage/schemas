@@ -5,7 +5,7 @@ coverage tool writes at the end of a run, and nothing else:
 
 - [`path_coverage.schema.json`](path_coverage.schema.json): the counts,
   for AIs and other tools. Every decision, the paths each took, the
-  totals, and each method's card.
+  totals, and each method's flow.
 - [`path_coverage.source.schema.json`](path_coverage.source.schema.json):
   what drawing each file's code needs and only a parser of its language
   can work out: each line's text and coloured tokens, where each
@@ -43,14 +43,14 @@ it at, the path relative to the run's root. The keys:
 }
 ```
 
-- `cards`: each method's card, under its def's name, and each top card,
-  for code outside every method, under its first line. A card has a
+- `flows`: each method's flow, under its def's name, and each top flow,
+  for code outside every method, under its first line. A flow has a
   row for each decision, and each `return` or `raise`, which ends a
   path; its `ways`, the ways one call can go through it; and its
-  `calls`, `null` for a top card:
+  `calls`, `null` for a top flow:
 
 ```json
-"cards": {
+"flows": {
   "label.rb:1:0": {
     "name": "label", "first": 1, "last": 7, "ways": 2, "calls": 1,
     "rows": [
@@ -62,7 +62,7 @@ it at, the path relative to the run's root. The keys:
 }
 ```
 
-- `tree`: how each card's rows nest, by file, then card, then row. A row
+- `tree`: how each flow's rows nest, by file, then flow, then row. A row
   inside a decision names it as its `parent`, the arm it is `in`, and
   `on`, the indices of the parent's paths that run it, in the order
   `paths` lists them. A row inside one of its parent's leaves names that
@@ -105,21 +105,30 @@ can work out, so html-reporter never parses code:
   `tokens`, and its `decisions`, each its `span` of lines and its
   `fold`: the decision's own row, then a row per part, each with a cell
   per possible path, in the order `paths` lists them.
-- `labels`: each card row's `top`, coloured.
+- `labels`: each flow row's `top`, coloured.
 - `groups`: each group's covered files.
 
 ## Validating a run
 
-The image validates the two files in a directory, exiting non-zero if
-either is invalid:
+The image validates the two files in a directory, each against the
+schema its `$schema` names. It exits non-zero if either is invalid, or
+names no schema the image holds:
 
 ```sh
 docker run --rm -v "$PWD/coverage:/paths:ro" ghcr.io/path-coverage/schemas /paths
 ```
 
+## Versions
+
+Each version of the schemas is a directory, `v1`, `v2`, and so on,
+holding its two schemas and its own samples. The image holds every
+version, so a run naming an older one still validates against it. v2
+names what v1 called `cards` as `flows`.
+
 ## Testing
 
-`bin/test.sh` builds the image and, in it, checks every sample under
-`samples/valid`, a demo run of each tool, is valid, and every sample
-under `samples/invalid` is not. A push to main tests, then publishes the
-image, tagged `latest` and with the commit.
+`bin/test.sh` builds the image and, in it, checks each version's
+samples against that version's schemas: every sample under
+`v<N>/samples/valid`, a demo run of a tool, is valid, and every sample
+under `v<N>/samples/invalid` is not. A push to main tests, then
+publishes the image, tagged `latest` and with the commit.
