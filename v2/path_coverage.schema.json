@@ -171,7 +171,7 @@
       }
     },
     "takenPaths": {
-      "description": "Paths, each its leaves' outcomes in order, with how often it was taken. An outcome is true, false, null for a leaf not reached, or a word, eg 2+ items.",
+      "description": "Paths, each its leaves' outcomes in order, with how often it was taken. An outcome is true, false, null for a leaf not reached, or a word, eg all true.",
       "type": "array",
       "items": {
         "type": "object",
