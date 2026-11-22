@@ -123,7 +123,9 @@ docker run --rm -v "$PWD/coverage:/paths:ro" ghcr.io/path-coverage/schemas /path
 Each version of the schemas is a directory, `v1`, `v2`, and so on,
 holding its two schemas and its own samples. The image holds every
 version, so a run naming an older one still validates against it. v2
-names what v1 called `cards` as `flows`.
+names what v1 called `cards` as `flows`. v3 makes each count of what a
+run did a tally by test, `{test key: n}`, where v2 has a bare count, and
+names each key's test under `tests`.
 
 ## Testing
 
