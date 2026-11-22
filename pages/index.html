@@ -13,7 +13,15 @@
 <h1>path-coverage schemas</h1>
 <p>The JSON Schemas (draft 2020-12) of the two files every language's path
 coverage tool writes at the end of a run.</p>
+<h2>v3</h2>
+<ul>
+  <li><a href="v3/path_coverage.schema.json"><code>path_coverage.schema.json</code></a>:
+    the counts, each a tally by test, for AIs and other tools.</li>
+  <li><a href="v3/path_coverage.source.schema.json"><code>path_coverage.source.schema.json</code></a>:
+    what drawing each file's code needs.</li>
+</ul>
 <h2>v2</h2>
+<p>As v3, with each count a bare number, not split by test.</p>
 <ul>
   <li><a href="v2/path_coverage.schema.json"><code>path_coverage.schema.json</code></a>:
     the counts, for AIs and other tools.</li>
